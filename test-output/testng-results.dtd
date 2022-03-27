@@ -1,0 +1,40 @@
+<!ELEMENT testng-results (reporter-output,suite)>
+<!ATTLIST testng-results ignored NMTOKEN #REQUIRED>
+<!ATTLIST testng-results total NMTOKEN #REQUIRED>
+<!ATTLIST testng-results passed NMTOKEN #REQUIRED>
+<!ATTLIST testng-results failed NMTOKEN #REQUIRED>
+<!ATTLIST testng-results skipped NMTOKEN #REQUIRED>
+<!ELEMENT reporter-output (#PCDATA)>
+<!ELEMENT suite (groups,test)>
+<!ATTLIST suite started-at NMTOKEN #REQUIRED>
+<!ATTLIST suite name CDATA #REQUIRED>
+<!ATTLIST suite finished-at NMTOKEN #REQUIRED>
+<!ATTLIST suite duration-ms NMTOKEN #REQUIRED>
+<!ELEMENT groups (group)>
+<!ELEMENT group (method)>
+<!ATTLIST group name NMTOKEN #REQUIRED>
+<!ELEMENT method EMPTY>
+<!ATTLIST method signature CDATA #REQUIRED>
+<!ATTLIST method name NMTOKEN #REQUIRED>
+<!ATTLIST method class NMTOKEN #REQUIRED>
+<!ELEMENT test (class)>
+<!ATTLIST test started-at NMTOKEN #REQUIRED>
+<!ATTLIST test name CDATA #REQUIRED>
+<!ATTLIST test finished-at NMTOKEN #REQUIRED>
+<!ATTLIST test duration-ms NMTOKEN #REQUIRED>
+<!ELEMENT class (test-method+)>
+<!ATTLIST class name NMTOKEN #REQUIRED>
+<!ELEMENT test-method (reporter-output,params?)>
+<!ATTLIST test-method is-config NMTOKEN #IMPLIED>
+<!ATTLIST test-method signature CDATA #REQUIRED>
+<!ATTLIST test-method started-at NMTOKEN #REQUIRED>
+<!ATTLIST test-method name NMTOKEN #REQUIRED>
+<!ATTLIST test-method finished-at NMTOKEN #REQUIRED>
+<!ATTLIST test-method duration-ms NMTOKEN #REQUIRED>
+<!ATTLIST test-method status NMTOKEN #REQUIRED>
+<!ATTLIST test-method description CDATA #IMPLIED>
+<!ATTLIST test-method data-provider NMTOKEN #IMPLIED>
+<!ELEMENT params (param)>
+<!ELEMENT param (value)>
+<!ATTLIST param index NMTOKEN #REQUIRED>
+<!ELEMENT value EMPTY>
